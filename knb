@@ -286,7 +286,7 @@ function run-client {
 	spec:
 	  containers:
 	  - name: iperf
-	    image: infrabuilder/bench-iperf3
+	    image: ghcr.io/khalilsantana/k8s-bench-iperf3:latest
 	    args:
 	    - /bin/sh
 	    - -c
@@ -362,6 +362,8 @@ function initialize-plotly-pod {
 	  - name: plotly-orca
 	    image: quay.io/plotly/orca
 	  restartPolicy: Never
+	  nodeName: v2-k8s-vm1
+	
 	EOF
 
 	RESOURCE_TO_CLEAN_BEFORE_EXIT="$RESOURCE_TO_CLEAN_BEFORE_EXIT pod/$POD_NAME"
@@ -1067,7 +1069,7 @@ metadata:
 spec:
   containers:
   - name: monitor
-    image: infrabuilder/bench-custom-monitor
+    image: ghcr.io/khalilsantana/k8s-bench-monitor:latest
   nodeSelector:
     kubernetes.io/hostname: $SERVER_NODE
 EOF
@@ -1090,7 +1092,7 @@ metadata:
 spec:
   containers:
   - name: monitor
-    image: infrabuilder/bench-custom-monitor
+    image: ghcr.io/khalilsantana/k8s-bench-monitor:latest
   nodeSelector:
     kubernetes.io/hostname: $CLIENT_NODE
 EOF
