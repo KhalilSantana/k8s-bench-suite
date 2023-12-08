@@ -1118,7 +1118,7 @@ metadata:
 spec:
   containers:
   - name: iperf
-    image: infrabuilder/netbench:server-iperf3
+    image: ghcr.io/khalilsantana/k8s-bench-iperf3:latest
     args:
     - iperf3
     - -s
