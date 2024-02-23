@@ -362,7 +362,8 @@ function initialize-plotly-pod {
 	  - name: plotly-orca
 	    image: quay.io/plotly/orca
 	  restartPolicy: Never
-	  nodeName: v2-k8s-vm1
+          nodeSelector:
+              kubernetes.io/arch: amd64
 	
 	EOF
 
